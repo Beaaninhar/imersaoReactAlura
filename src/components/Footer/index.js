@@ -1,11 +1,10 @@
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 // src/components/Footer/index.js
 const FooterWrapper = styled.footer`
   border: 1px solid ${({ theme }) => theme.colors.primary};
-  background-color: ${({ theme }) => {
-    return theme.colors.mainBg;
-  }};
+  background-color: ${({ theme }) => theme.colors.mainBg};
   padding: 20px;
   display: flex;
   align-items: center;
@@ -39,7 +38,8 @@ export default function Footer(props) {
         />
       </a>
       <p>
-        Orgulhosamente criado durante a{" "}
+        Orgulhosamente criado durante a
+        {' '}
         <a href="https://www.alura.com.br/">
           <span>Imersão React da Alura</span>
         </a>

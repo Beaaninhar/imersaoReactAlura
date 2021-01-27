@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react';
 
-const Quiz = () => {
-  return <div>Quiz deve ser feito aqui</div>;
-};
+const quiz = () => (
+  <div>
+    <h1>Quiz vem aqui</h1>
+  </div>
+);
 
-export default Quiz;
+export default quiz;
