@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import db from '../db.json';
 import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
@@ -27,6 +28,23 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
+  const router = useRouter();
+  const [name, setName] = useState('');
+  console.log(`Retorno do useState ${name} e ${setName}`);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    router.push(`/quiz?name=${name}`);
+    console.log('Fazendo uma subimissão por meio do react');
+  }
+
+  function handleInput(event) {
+    console.log(event.target.value);
+    // state
+    // name = event.target.value;
+    setName(event.target.value);
+  }
+
   return (
     <>
       <Head>
@@ -42,9 +60,12 @@ export default function Home() {
               <h1>{db.title}</h1>
             </Widget.Header>
             <Widget.Content>
-              <form>
-                {/* MINUTO 36:46 */}
-                <input placeholder="Nome" />
+              <form onSubmit={handleSubmit}>
+                <input placeholder="Nome do sofredor" onChange={handleInput} />
+                {/* eslint-disable-next-line react/button-has-type */}
+                <button type="submit" disabled={name.length === 0}>
+                  Bora sofrer, ops! Jogar {name}
+                </button>
               </form>
             </Widget.Content>
           </Widget>
