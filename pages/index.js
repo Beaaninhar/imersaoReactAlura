@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import db from '../db.json';
@@ -8,6 +7,9 @@ import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground';
 import QuizLogo from '../src/components/QuizLogo';
+import Input from '../src/components/Input/input';
+import Button from '../src/components/Button';
+import QuizContainer from '../src/components/QuizContainer';
 
 // const BackgroundImage = styled.div`
 //   background-image: url(${db.bg});
@@ -16,16 +18,6 @@ import QuizLogo from '../src/components/QuizLogo';
 //   background-position: center;
 // `;
 
-export const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 45px;
-  margin: auto 10%;
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 15px;
-  }
-`;
 
 export default function Home() {
   const router = useRouter();
@@ -61,11 +53,12 @@ export default function Home() {
             </Widget.Header>
             <Widget.Content>
               <form onSubmit={handleSubmit}>
-                <input placeholder="Nome do sofredor" onChange={handleInput} />
+                <Input name={name} value={name} placeholder="Nome do sofredor" onChange={handleInput} />
                 {/* eslint-disable-next-line react/button-has-type */}
-                <button type="submit" disabled={name.length === 0}>
+                <Button type="submit" disabled={name.length === 0}>
+                  {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
                   Bora sofrer, ops! Jogar {name}
-                </button>
+                </Button>
               </form>
             </Widget.Content>
           </Widget>

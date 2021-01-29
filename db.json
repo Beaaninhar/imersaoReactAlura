@@ -4,25 +4,27 @@
     "description": "Teste seus conhecimentos sobre Grey's!",
     "questions": [
         {
-            "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-            "title": "Como fazer um seletor por id via CSS?",
+            "image": "https://i.pinimg.com/originals/84/9a/4e/849a4e5924912e1d939cd8a13c1e42d4.gif",
+            "title": "Em que temorada Gre'y virou atendente?",
             "description": "Essa é pra aquecer",
             "answer": 2,
             "alternatives": [
-                ".elemento",
-                "*elemento",
-                "#elemento",
-                "%elemento"
+                "5 Temporada",
+                "6 Temporada",
+                "7 Temporada",
+                "8 Temporada"
             ]
         },
         {
-            "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-            "title": "Como fazer um background gradiente com css?",
+            "image": "https://i.pinimg.com/originals/d4/da/d9/d4dad9d2acd979e43f033d1ab17c06e5.gif",
+            "title": "Quanto(s) abortos cristina teve?",
             "description": "Faz tempo em haha",
             "answer": 0,
             "alternatives": [
-                "background: linear-gradient(#e66465, #9198e5);",
-                "background: gradient(#e66465, #9198e5);"
+                "5 Temporada",
+                "6 Temporada",
+                "7 Temporada",
+                "8 Temporada"
             ]
         }
     ],
@@ -32,11 +34,12 @@
     "theme": {
         "colors": {
             "primary": "#b0c4de",
-            "secondary": "#29b6f6",
+            "secondary": "#696969",
             "mainBg": "#708090",
             "contrastText": "#1C1C1C",
-            "wrong": "#FF5722",
-            "success": "#4CAF50"
+            "wrong": "#FF0000",
+            "success": "#4CAF50",
+            "disabled": "#cccc"
         },
         "borderRadius": "4px"
     }
