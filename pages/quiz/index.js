@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import db from '../db.json';
-import Widget from '../src/components/Widget';
-import QuizBackground from '../src/components/QuizBackground';
-import QuizLogo from '../src/components/QuizLogo';
-import QuizContainer from '../src/components/QuizContainer';
-import Button from '../src/components/Button';
-import AlternativesForm from '../src/components/AlternativesForm';
+import db from '../../db.json';
+import Widget from '../../src/components/Widget';
+import QuizBackground from '../../src/components/QuizBackground';
+import QuizLogo from '../../src/components/QuizLogo';
+import QuizContainer from '../../src/components/QuizContainer';
+import Button from '../../src/components/Button';
+import AlternativesForm from '../../src/components/AlternativesForm';
+import BackLinkArrow from '../../src/components/BackLinkArrow';
 
 function ResultgWidget({ results }) {
   return (
@@ -90,6 +91,7 @@ function QuestionWidget({
   return (
     <Widget>
       <Widget.Header>
+        <BackLinkArrow href="/" />
         <h3>{`Pergunta ${questionIndex + 1} de ${totalQuestions}`}</h3>
       </Widget.Header>
       <img
@@ -108,7 +110,7 @@ function QuestionWidget({
         <AlternativesForm onSubmit={preventSubmit}>
           {questions.alternatives.map((alternative, alternativeIndex) => {
             const alternativeId = `alternative_${alternativeIndex}`;
-            const alternativeStatus = isCorrect  ? 'SUCCESS' : 'ERROR';
+            const alternativeStatus = isCorrect ? 'SUCCESS' : 'ERROR';
             const isSelected = selectedAlternative === alternativeIndex;
             return (
               <Widget.Topic
@@ -153,9 +155,9 @@ const screenStates = {
 export default function Quiz() {
   const [screenState, setScreenState] = useState(screenStates.LOADING);
   const [results, setResults] = useState([]);
-  const totalQuestions = db.questions.length;
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const questionIndex = currentQuestion;
+  const totalQuestions = db.questions.length;
   const questions = db.questions[questionIndex];
 
   function handleSubmit() {
